@@ -1,0 +1,224 @@
+/* Базовий стиль */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.block1, .block6 {
+    width: 100vw;
+    height: 150px;
+    background: #c7d9f1;
+    border-bottom: solid 1px black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed; /* Використання фіксованої позиції */
+    left: 0;
+    z-index: 100; /* Забезпечує, що ці елементи знаходяться вище за інші */
+}
+
+.block1 {
+    top: 0;
+}
+
+.block6 {
+    bottom: 0;
+    border-top: solid 1px black;
+}
+
+.block2, .block4 {
+    width: 270px;
+    height: calc(100vh - 300px);
+    background: #fef9c3;
+    padding: 0;
+    border: solid 1px black;
+    border-right: none; /* Без бордюра для бокових панелей */
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 150px;
+}
+
+.block2 {
+    left: 0;
+}
+
+.block4 {
+    right: 0;
+}
+
+.block3 {
+    width: calc(100vw - 540px); /* Віднімаємо ширину бокових панелей */
+    height: calc(100vh - 360px); /* Віднімаємо висоту шапки та футера */
+    background: white;
+    padding: 0;
+    position: fixed;
+    top: 150px;
+    left: 270px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Відстань між зображеннями */
+    border-right: solid 1px black;
+    overflow: hidden;
+}
+
+.block5 {
+    width: calc(100vw - 540px);
+    height: 60px;
+    background: #e0f5d1;
+    position: fixed;
+    top: calc(100vh - 210px); /* Позиція верхнього блоку відносно футера */
+    left: 270px; /* Відступ для бокових панелей */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+}
+
+.white-box {
+    background-color: white;
+    border: 2px solid black;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.info-box, .menu-info {
+    text-align: right;
+    max-width: 50%;
+    overflow-y: auto; /* Якщо контент перевищує межі, з'являється скрол */
+}
+
+.x, .y {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(2vw + 2vh);
+    background-color: white;
+    border: 2px solid black;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.responsive-img {
+    width: auto;
+    height: 100%;
+    object-fit: cover; /* Зображення адаптується під контейнер */
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.zoom-img {
+    transform: scale(1.2);
+}
+
+/* Медіа-запити для адаптації сторінки під мобільні екрани */
+@media (max-width: 850px) {
+    .cell_wide-text {
+        width: 90%;
+        margin-left: 5%;
+        font-size: 15px;
+    }
+
+    .table_footer__cell--2__contacts {
+        width: 80%;
+        margin-left: 20%;
+    }
+
+    /* Можна додати додаткові правила для адаптації інших блоків */
+    .block3 {
+        width: calc(100vw - 20px); /* Зменшення ширини для маленьких екранів */
+        left: 10px; /* Відступ від країв екрану */
+    }
+
+    .block2, .block4 {
+        width: 100vw; /* Блоки займають всю ширину екрану */
+        height: auto; /* Автоматична висота, щоб блоки не виходили за межі екрану */
+        position: relative; /* Відміна фіксованої позиції для мобільної адаптації */
+        top: 0;
+    }
+
+    .block1, .block6 {
+        position: relative; /* Шапка і футер теж не фіксовані для мобільної версії */
+        height: auto; /* Висота адаптується до контенту */
+    }
+
+    .block5 {
+        top: auto; /* Відміна фіксованого верхнього відступу */
+        position: relative;
+    }
+}
+@media (max-width: 850px) {
+    .menu-container {
+        flex-direction: column; /* Зображення переходить під текст на малих екранах */
+        align-items: center;
+    }
+
+    .menu-info {
+        max-width: 100%; /* Текст займає всю ширину */
+        text-align: center; /* Центрування тексту */
+    }
+
+    .menu-image {
+        max-width: 100%; /* Зображення також на всю ширину */
+        margin-top: 20px;
+    }
+}
+/* Стилі для сторінки меню */
+.block3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Текст вирівнюється по верху */
+    width: 100%;
+    max-width: 1200px;
+    gap: 20px; /* Відступ між текстом і зображенням */
+}
+
+/* Стиль для текстової частини */
+.menu-info {
+    flex: 1; /* Текст займає основну частину ширини */
+    text-align: left; /* Вирівнювання тексту по лівому краю */
+    max-width: 60%; /* Можна регулювати ширину текстової частини */
+}
+
+/* Стиль для зображення */
+.menu-image {
+    flex-shrink: 0; /* Забезпечує, щоб зображення не стискалося */
+    max-width: 40%; /* Встановлюємо максимальну ширину для зображення */
+}
+
+.menu-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Забезпечує відповідне масштабування зображення */
+    border-radius: 10px;
+}
+.menu-columns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex: 1 1 22%; /* Adjust the width as needed */
+    margin: 10px;
+}
