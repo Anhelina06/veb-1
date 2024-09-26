@@ -1,4 +1,4 @@
-
+/* Поля, відступи=0*/
 html, body {
     margin: 0;
     padding: 0;
@@ -10,17 +10,16 @@ html, body {
     width: 100vw;
     height: 150px;
     background: #c7d9f1;
-    border-bottom: solid 1px black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border-bottom: solid 1px black; /* Нижня чорна рамка для верхнього блоку */
+    display: flex; /* Вирівнювання через flexbox */
+    justify-content: space-between; /* відстань між елементами */
+    align-items: center; /* вертикальне вирівнювання  */
     padding: 20px;
     box-sizing: border-box;
     position: fixed;
     left: 0;
-    z-index: 100;
+    z-index: 100; /* пріоритет*/
 }
-
 .block1 {
     top: 0;
 }
@@ -34,9 +33,6 @@ html, body {
     width: 270px;
     height: calc(100vh - 300px);
     background: #fef9c3;
-    padding: 0;
-    border: solid 1px black;
-    border-right: none;
     position: fixed;
     display: flex;
     justify-content: center;
@@ -52,28 +48,20 @@ html, body {
     right: 0;
 }
 
+
 .block3 {
     width: calc(100vw - 540px);
     height: calc(100vh - 360px);
     background: white;
-    padding: 0;
     position: fixed;
     top: 150px;
     left: 270px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    border-right: solid 1px black;
-    overflow: hidden;
-
-}
-.block3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 20px;
     box-sizing: border-box;
+    overflow: hidden; /* текст за межі приховати  */
 }
 
 .block5 {
@@ -110,19 +98,18 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: calc(2vw + 2vh);
+    font-size: calc(2vw + 2vh);/*шриф залежить від розміру*/
     background-color: white;
     border: 2px solid black;
     text-align: center;
     padding: 10px;
     box-sizing: border-box;
-    overflow: hidden;
-}
+    overflow: hidden;  }
 
 .responsive-img {
     width: auto;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /*маштабування*/
     max-width: 100%;
     max-height: 100%;
 }
@@ -132,18 +119,6 @@ html, body {
 }
 
 @media (max-width: 850px) {
-    .cell_wide-text {
-        width: 90%;
-        margin-left: 5%;
-        font-size: 15px;
-    }
-
-    .table_footer__cell--2__contacts {
-        width: 80%;
-        margin-left: 20%;
-    }
-
-
     .block3 {
         width: calc(100vw - 20px);
         left: 10px;
@@ -166,6 +141,34 @@ html, body {
         position: relative;
     }
 }
+
+.menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    gap: 20px; /* проміжок  */
+}
+
+.menu-info {
+    flex: 1;
+    text-align: left;
+    max-width: 60%; /
+}
+
+.menu-image {
+    /*flex-shrink: 0; /* Заборона на зменшення блоку */
+    max-width: 40%;
+}
+
+.menu-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px; /* округлі кути */
+}
+
 @media (max-width: 850px) {
     .menu-container {
         flex-direction: column;
@@ -183,36 +186,9 @@ html, body {
     }
 }
 
-
-.menu-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    max-width: 1200px;
-    gap: 20px;
-}
-
-.menu-info {
-    flex: 1;
-    text-align: left;
-    max-width: 60%;
-}
-
-.menu-image {
-    flex-shrink: 0;
-    max-width: 40%;
-}
-
-.menu-image img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
-}
 .menu-columns {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* відстань між колонками */
     flex-wrap: wrap;
 }
 
@@ -220,11 +196,12 @@ html, body {
     flex: 1 1 22%;
     margin: 10px;
 }
-.text{
-    overflow:hidden;
+
+.text {
+    overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow-y: scroll;
+    -webkit-line-clamp: 3; /* обрізка після 3 рядків */
+    overflow-y: scroll; /* прокрутка*/
     scrollbar-gutter: stable both-edges;
 }
