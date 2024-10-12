@@ -1,4 +1,4 @@
-/* Поля, відступи=0*/
+
 html, body {
     margin: 0;
     padding: 0;
@@ -7,20 +7,19 @@ html, body {
 }
 
 .block1, .block6 {
-    position: static;
+    position: fixed;
     width: 100vw;
     height: 150px;
     background: #c7d9f1;
-    border-bottom: solid 1px black; /* Нижня чорна рамка для верхнього блоку */
+    border-bottom: solid 1px black;
     display: flex;
-    justify-content: space-between; /* відстань між елементами */
-    align-items: center; /* вертикальне вирівнювання  */
+    justify-content: space-between;
+    align-items: center;
     padding: 20px;
     box-sizing: border-box;
-    position: fixed;
-    left: 0;
-    z-index: 100; /* пріоритет*/
+    z-index: 100; /* блок перекриє текст*/
 }
+
 .block1 {
     top: 0;
 }
@@ -31,15 +30,14 @@ html, body {
 }
 
 .block2, .block4 {
-    position: static;
+    position: fixed;
     width: 270px;
     height: calc(100vh - 300px);
     background: #fef9c3;
-    position: fixed;
+    top: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 150px;
 }
 
 .block2 {
@@ -50,31 +48,28 @@ html, body {
     right: 0;
 }
 
-
 .block3 {
-    position: static;
+    position: relative;
     width: calc(100vw - 540px);
     height: calc(100vh - 360px);
     background: white;
-    position: fixed;
-    top: 150px;
+    margin-top: 150px;
     left: 270px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
-    overflow: hidden; /* текст за межі приховати  */
+    overflow: hidden;/*текст приховати за межами блоку*/
 }
 
 .block5 {
-    position: static;
-    width: calc(100vw - 540px);
+    position: fixed;
+    width: calc(100vw - 270px);
     height: 60px;
     background: #e0f5d1;
-    position: fixed;
     top: calc(100vh - 210px);
-    left: 270px;
+    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,65 +91,18 @@ html, body {
     overflow-y: auto;
 }
 
-.x, .y {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: calc(2vw + 2vh);/*шриф залежить від розміру*/
-    background-color: white;
-    border: 2px solid black;
-    text-align: center;
-    padding: 10px;
-    box-sizing: border-box;
-    overflow: hidden;  }
-
 .responsive-img {
     width: auto;
     height: 100%;
-    object-fit: cover; /*маштабування*/
+    object-fit: cover;
     max-width: 100%;
     max-height: 100%;
 }
 
-.zoom-img {
-    transform: scale(1.2);
-}
-
-
-.menu-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    max-width: 1200px;
-    gap: 20px; /* проміжок  */
-}
-
-.menu-info {
-    flex: 1;
-    text-align: left;
-    max-width: 60%; /
-}
-
-.menu-image {
-    /*flex-shrink: 0; /* Заборона на зменшення блоку */
-    max-width: 40%;
-}
-
-.menu-image img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px; /* округлі кути */
-}
-
 @media (max-width: 850px) {
-    /* Стилі для блоків */
-    .block3 {
-        width: calc(100vw - 20px);
-        left: 10px;
+    .block1, .block6 {
+        height: auto;
+        position: relative;
     }
 
     .block2, .block4 {
@@ -164,50 +112,34 @@ html, body {
         top: 0;
     }
 
-    .block1, .block6 {
-        position: relative;
-        height: auto;
+    .block3 {
+        width: calc(100vw - 20px);
+        left: 10px;
+        margin-top: 0;
     }
 
     .block5 {
         top: auto;
         position: relative;
+        width: 100vw;
+        left: 0;
+        height: 60px;
+        background: #e0f5d1;
     }
 
-    /* Стилі для меню */
-    .menu-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .menu-info {
-        max-width: 100%;
+    .info-box, .menu-info {
         text-align: center;
-    }
-
-    .menu-image {
         max-width: 100%;
-        margin-top: 20px;
     }
-}
 
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        list-style: none;
+    }
 
-.menu-columns {
-    display: flex;
-    justify-content: space-between; /* відстань між колонками */
-    flex-wrap: wrap;
-}
-
-.column {
-    flex: 1 1 22%;
-    margin: 10px;
-}
-
-.text {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3; /* обрізка після 3 рядків */
-    overflow-y: scroll; /* прокрутка*/
-    scrollbar-gutter: stable both-edges;
+    nav ul li {
+        margin: 5px 0;
+    }
 }
